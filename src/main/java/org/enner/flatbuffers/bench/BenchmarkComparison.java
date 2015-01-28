@@ -31,10 +31,33 @@ public class BenchmarkComparison {
     }
 
     /**
-     * Benchmark                                   Mode  Samples   Score  Score error   Units
-     * o.e.f.b.BenchmarkComparison.protoDecode    thrpt       20  17.098        0.199  ops/us
-     * o.e.f.b.BenchmarkComparison.protoEncode    thrpt       20   0.621        0.013  ops/us
-     * o.e.f.b.BenchmarkComparison.protoUse       thrpt       20  27.186        0.499  ops/us
+     * Benchmark                                       Mode  Samples  Score  Score error  Units
+     * o.e.f.b.BenchmarkComparison.flatEncodeDirect    avgt       20  1.137        0.036  us/op
+     * o.e.f.b.BenchmarkComparison.flatUseDirect       avgt       20  0.639        0.013  us/op
+     * o.e.f.b.BenchmarkComparison.flatDecodeDirect    avgt       20  0.009        0.001  us/op (included in use)
+     * <p/>
+     * o.e.f.b.BenchmarkComparison.flatEncodeHeap      avgt       20  1.576        0.030  us/op
+     * o.e.f.b.BenchmarkComparison.flatUseHeap         avgt       20  0.732        0.029  us/op (included in use)
+     * o.e.f.b.BenchmarkComparison.flatDecodeHeap      avgt       20  0.011        0.000  us/op
+     * <p/>
+     * o.e.f.b.BenchmarkComparison.protoEncode         avgt       20  1.652        0.049  us/op
+     * o.e.f.b.BenchmarkComparison.protoUse            avgt       20  0.037        0.001  us/op
+     * o.e.f.b.BenchmarkComparison.protoDecode         avgt       20  6.903        0.084  us/op
+     */
+
+    /**
+     * http://google.github.io/flatbuffers/md__benchmarks.html
+     * in micro sec per operation (= sec for 1M operations)
+     * <p/>
+     * Decode + Traverse
+     * (FlatBuf direct) 0     / 0.639 = 0.639
+     * (FlatBuf heap)   0     / 0.732 = 0.732
+     * (ProtoBuf)       6.903 / 0.037  = 6.94
+     * <p/>
+     * Encode
+     * (FlatBuf direct) 1.137
+     * (FlatBuf heap)   1.576
+     * (ProtoBuf)       1.652
      */
 
     public BenchmarkComparison() {
