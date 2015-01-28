@@ -31,6 +31,10 @@ public class BenchmarkComparison {
     }
 
     /**
+     * OS: Windows 8.1
+     * JDK: Oracle JDK 1.8.0_20-b26
+     * CPU: Intel i5-3427U @ 1.80 Ghz
+     *
      * Benchmark                                       Mode  Samples  Score  Score error  Units
      * o.e.f.b.BenchmarkComparison.flatEncodeDirect    avgt       20  1.137        0.036  us/op
      * o.e.f.b.BenchmarkComparison.flatUseDirect       avgt       20  0.639        0.013  us/op
