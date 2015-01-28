@@ -47,6 +47,11 @@ public class BenchmarkComparison {
      * o.e.f.b.BenchmarkComparison.protoEncode         avgt       20  1.652        0.049  us/op
      * o.e.f.b.BenchmarkComparison.protoUse            avgt       20  0.037        0.001  us/op
      * o.e.f.b.BenchmarkComparison.protoDecode         avgt       20  6.903        0.084  us/op
+     *
+     * o.e.f.b.BenchmarkComparison.protoNanoEncode     avgt       20  1.379        0.058  us/op
+     * o.e.f.b.BenchmarkComparison.protoNanoUse        avgt       20  0.024        0.001  us/op
+     * o.e.f.b.BenchmarkComparison.protoNanoDecode     avgt       20  1.101        0.048  us/op
+     * o.e.f.b.BenchmarkComparison.protoNanoMerge      avgt       20  358.972       49.421  us/op
      */
 
     /**
@@ -71,6 +76,7 @@ public class BenchmarkComparison {
     }
 
     ProtoBench protoBench = new ProtoBench();
+    ProtoNanoBench protoNanoBench = new ProtoNanoBench();
     FlatBench flatBench = new FlatBench();
     ByteBuffer heapReadBuffer = ByteBuffer.allocate(1024);
     ByteBuffer directReadBuffer = ByteBuffer.allocateDirect(1024);
@@ -92,6 +98,27 @@ public class BenchmarkComparison {
     public long protoUse() {
         return protoBench.use();
     }
+
+    @Benchmark
+    public Object protoNanoEncode() {
+        return protoNanoBench.encode();
+    }
+
+    @Benchmark
+    public Object protoNanoDecode() {
+        return protoNanoBench.decode();
+    }
+
+    @Benchmark
+    public Object protoNanoMerge() {
+        return protoNanoBench.merge();
+    }
+
+    @Benchmark
+    public long protoNanoUse() {
+        return protoNanoBench.use();
+    }
+
 
     @Benchmark
     public Object flatEncodeHeap() {
