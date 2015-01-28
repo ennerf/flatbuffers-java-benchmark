@@ -51,7 +51,7 @@ public class BenchmarkComparison {
      * o.e.f.b.BenchmarkComparison.protoNanoEncode     avgt       20  1.379        0.058  us/op
      * o.e.f.b.BenchmarkComparison.protoNanoUse        avgt       20  0.024        0.001  us/op
      * o.e.f.b.BenchmarkComparison.protoNanoDecode     avgt       20  1.101        0.048  us/op
-     * o.e.f.b.BenchmarkComparison.protoNanoMerge      avgt       20  358.972       49.421  us/op
+     * o.e.f.b.BenchmarkComparison.protoNanoMerge      avgt       20  1.063        0.038  us/op
      */
 
     /**

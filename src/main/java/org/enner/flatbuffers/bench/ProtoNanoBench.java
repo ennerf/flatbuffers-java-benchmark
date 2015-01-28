@@ -76,6 +76,7 @@ public class ProtoNanoBench {
     public FooBarContainer merge() {
         input.rewindToPosition(0);
         try {
+            readContainer.clear();
             return readContainer.mergeFrom(input);
         } catch (IOException e) {
             // shouldn't happen
