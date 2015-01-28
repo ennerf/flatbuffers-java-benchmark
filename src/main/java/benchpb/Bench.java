@@ -73,10 +73,10 @@ public final class Bench {
     // @@protoc_insertion_point(enum_scope:benchpb.Enum)
   }
 
-  public interface FooOrBuilder
-      extends com.google.protobuf.MessageLiteOrBuilder {
+  public interface FooOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:benchpb.Foo)
+      com.google.protobuf.MessageLiteOrBuilder {
 
-    // required uint64 id = 1;
     /**
      * <code>required uint64 id = 1;</code>
      */
@@ -86,7 +86,6 @@ public final class Bench {
      */
     long getId();
 
-    // required int32 count = 2;
     /**
      * <code>required int32 count = 2;</code>
      */
@@ -96,7 +95,6 @@ public final class Bench {
      */
     int getCount();
 
-    // required int32 prefix = 3;
     /**
      * <code>required int32 prefix = 3;</code>
      */
@@ -106,7 +104,6 @@ public final class Bench {
      */
     int getPrefix();
 
-    // required uint32 length = 4;
     /**
      * <code>required uint32 length = 4;</code>
      */
@@ -120,14 +117,15 @@ public final class Bench {
    * Protobuf type {@code benchpb.Foo}
    */
   public static final class Foo extends
-      com.google.protobuf.GeneratedMessageLite
-      implements FooOrBuilder {
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:benchpb.Foo)
+      FooOrBuilder {
     // Use Foo.newBuilder() to construct.
     private Foo(com.google.protobuf.GeneratedMessageLite.Builder builder) {
       super(builder);
-
+      this.unknownFields = builder.getUnknownFields();
     }
-    private Foo(boolean noInit) {}
+    private Foo(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
 
     private static final Foo defaultInstance;
     public static Foo getDefaultInstance() {
@@ -138,12 +136,18 @@ public final class Bench {
       return defaultInstance;
     }
 
+    private final com.google.protobuf.ByteString unknownFields;
     private Foo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
       try {
         boolean done = false;
         while (!done) {
@@ -153,7 +157,7 @@ public final class Bench {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input,
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
                                      extensionRegistry, tag)) {
                 done = true;
               }
@@ -187,6 +191,13 @@ public final class Bench {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -206,7 +217,6 @@ public final class Bench {
     }
 
     private int bitField0_;
-    // required uint64 id = 1;
     public static final int ID_FIELD_NUMBER = 1;
     private long id_;
     /**
@@ -222,7 +232,6 @@ public final class Bench {
       return id_;
     }
 
-    // required int32 count = 2;
     public static final int COUNT_FIELD_NUMBER = 2;
     private int count_;
     /**
@@ -238,7 +247,6 @@ public final class Bench {
       return count_;
     }
 
-    // required int32 prefix = 3;
     public static final int PREFIX_FIELD_NUMBER = 3;
     private int prefix_;
     /**
@@ -254,7 +262,6 @@ public final class Bench {
       return prefix_;
     }
 
-    // required uint32 length = 4;
     public static final int LENGTH_FIELD_NUMBER = 4;
     private int length_;
     /**
@@ -279,7 +286,8 @@ public final class Bench {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasId()) {
         memoizedIsInitialized = 0;
@@ -316,6 +324,7 @@ public final class Bench {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeUInt32(4, length_);
       }
+      output.writeRawBytes(unknownFields);
     }
 
     private int memoizedSerializedSize = -1;
@@ -340,6 +349,7 @@ public final class Bench {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, length_);
       }
+      size += unknownFields.size();
       memoizedSerializedSize = size;
       return size;
     }
@@ -417,7 +427,9 @@ public final class Bench {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageLite.Builder<
           benchpb.Bench.Foo, Builder>
-        implements benchpb.Bench.FooOrBuilder {
+        implements
+        // @@protoc_insertion_point(builder_implements:benchpb.Foo)
+        benchpb.Bench.FooOrBuilder {
       // Construct using benchpb.Bench.Foo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
@@ -496,6 +508,8 @@ public final class Bench {
         if (other.hasLength()) {
           setLength(other.getLength());
         }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
         return this;
       }
 
@@ -538,7 +552,6 @@ public final class Bench {
       }
       private int bitField0_;
 
-      // required uint64 id = 1;
       private long id_ ;
       /**
        * <code>required uint64 id = 1;</code>
@@ -571,7 +584,6 @@ public final class Bench {
         return this;
       }
 
-      // required int32 count = 2;
       private int count_ ;
       /**
        * <code>required int32 count = 2;</code>
@@ -604,7 +616,6 @@ public final class Bench {
         return this;
       }
 
-      // required int32 prefix = 3;
       private int prefix_ ;
       /**
        * <code>required int32 prefix = 3;</code>
@@ -637,7 +648,6 @@ public final class Bench {
         return this;
       }
 
-      // required uint32 length = 4;
       private int length_ ;
       /**
        * <code>required uint32 length = 4;</code>
@@ -681,10 +691,10 @@ public final class Bench {
     // @@protoc_insertion_point(class_scope:benchpb.Foo)
   }
 
-  public interface BarOrBuilder
-      extends com.google.protobuf.MessageLiteOrBuilder {
+  public interface BarOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:benchpb.Bar)
+      com.google.protobuf.MessageLiteOrBuilder {
 
-    // required .benchpb.Foo parent = 1;
     /**
      * <code>required .benchpb.Foo parent = 1;</code>
      */
@@ -694,7 +704,6 @@ public final class Bench {
      */
     benchpb.Bench.Foo getParent();
 
-    // required int32 time = 2;
     /**
      * <code>required int32 time = 2;</code>
      */
@@ -704,7 +713,6 @@ public final class Bench {
      */
     int getTime();
 
-    // required float ratio = 3;
     /**
      * <code>required float ratio = 3;</code>
      */
@@ -714,7 +722,6 @@ public final class Bench {
      */
     float getRatio();
 
-    // required uint32 size = 4;
     /**
      * <code>required uint32 size = 4;</code>
      */
@@ -728,14 +735,15 @@ public final class Bench {
    * Protobuf type {@code benchpb.Bar}
    */
   public static final class Bar extends
-      com.google.protobuf.GeneratedMessageLite
-      implements BarOrBuilder {
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:benchpb.Bar)
+      BarOrBuilder {
     // Use Bar.newBuilder() to construct.
     private Bar(com.google.protobuf.GeneratedMessageLite.Builder builder) {
       super(builder);
-
+      this.unknownFields = builder.getUnknownFields();
     }
-    private Bar(boolean noInit) {}
+    private Bar(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
 
     private static final Bar defaultInstance;
     public static Bar getDefaultInstance() {
@@ -746,12 +754,18 @@ public final class Bench {
       return defaultInstance;
     }
 
+    private final com.google.protobuf.ByteString unknownFields;
     private Bar(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
       try {
         boolean done = false;
         while (!done) {
@@ -761,7 +775,7 @@ public final class Bench {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input,
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
                                      extensionRegistry, tag)) {
                 done = true;
               }
@@ -803,6 +817,13 @@ public final class Bench {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -822,7 +843,6 @@ public final class Bench {
     }
 
     private int bitField0_;
-    // required .benchpb.Foo parent = 1;
     public static final int PARENT_FIELD_NUMBER = 1;
     private benchpb.Bench.Foo parent_;
     /**
@@ -838,7 +858,6 @@ public final class Bench {
       return parent_;
     }
 
-    // required int32 time = 2;
     public static final int TIME_FIELD_NUMBER = 2;
     private int time_;
     /**
@@ -854,7 +873,6 @@ public final class Bench {
       return time_;
     }
 
-    // required float ratio = 3;
     public static final int RATIO_FIELD_NUMBER = 3;
     private float ratio_;
     /**
@@ -870,7 +888,6 @@ public final class Bench {
       return ratio_;
     }
 
-    // required uint32 size = 4;
     public static final int SIZE_FIELD_NUMBER = 4;
     private int size_;
     /**
@@ -895,7 +912,8 @@ public final class Bench {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasParent()) {
         memoizedIsInitialized = 0;
@@ -936,6 +954,7 @@ public final class Bench {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeUInt32(4, size_);
       }
+      output.writeRawBytes(unknownFields);
     }
 
     private int memoizedSerializedSize = -1;
@@ -960,6 +979,7 @@ public final class Bench {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, size_);
       }
+      size += unknownFields.size();
       memoizedSerializedSize = size;
       return size;
     }
@@ -1037,7 +1057,9 @@ public final class Bench {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageLite.Builder<
           benchpb.Bench.Bar, Builder>
-        implements benchpb.Bench.BarOrBuilder {
+        implements
+        // @@protoc_insertion_point(builder_implements:benchpb.Bar)
+        benchpb.Bench.BarOrBuilder {
       // Construct using benchpb.Bench.Bar.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
@@ -1116,6 +1138,8 @@ public final class Bench {
         if (other.hasSize()) {
           setSize(other.getSize());
         }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
         return this;
       }
 
@@ -1162,7 +1186,6 @@ public final class Bench {
       }
       private int bitField0_;
 
-      // required .benchpb.Foo parent = 1;
       private benchpb.Bench.Foo parent_ = benchpb.Bench.Foo.getDefaultInstance();
       /**
        * <code>required .benchpb.Foo parent = 1;</code>
@@ -1223,7 +1246,6 @@ public final class Bench {
         return this;
       }
 
-      // required int32 time = 2;
       private int time_ ;
       /**
        * <code>required int32 time = 2;</code>
@@ -1256,7 +1278,6 @@ public final class Bench {
         return this;
       }
 
-      // required float ratio = 3;
       private float ratio_ ;
       /**
        * <code>required float ratio = 3;</code>
@@ -1289,7 +1310,6 @@ public final class Bench {
         return this;
       }
 
-      // required uint32 size = 4;
       private int size_ ;
       /**
        * <code>required uint32 size = 4;</code>
@@ -1333,10 +1353,10 @@ public final class Bench {
     // @@protoc_insertion_point(class_scope:benchpb.Bar)
   }
 
-  public interface FooBarOrBuilder
-      extends com.google.protobuf.MessageLiteOrBuilder {
+  public interface FooBarOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:benchpb.FooBar)
+      com.google.protobuf.MessageLiteOrBuilder {
 
-    // optional .benchpb.Bar sibling = 1;
     /**
      * <code>optional .benchpb.Bar sibling = 1;</code>
      */
@@ -1346,7 +1366,6 @@ public final class Bench {
      */
     benchpb.Bench.Bar getSibling();
 
-    // optional string name = 2;
     /**
      * <code>optional string name = 2;</code>
      */
@@ -1361,7 +1380,6 @@ public final class Bench {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // optional double rating = 3;
     /**
      * <code>optional double rating = 3;</code>
      */
@@ -1371,7 +1389,6 @@ public final class Bench {
      */
     double getRating();
 
-    // optional uint32 postfix = 4;
     /**
      * <code>optional uint32 postfix = 4;</code>
      */
@@ -1385,14 +1402,15 @@ public final class Bench {
    * Protobuf type {@code benchpb.FooBar}
    */
   public static final class FooBar extends
-      com.google.protobuf.GeneratedMessageLite
-      implements FooBarOrBuilder {
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:benchpb.FooBar)
+      FooBarOrBuilder {
     // Use FooBar.newBuilder() to construct.
     private FooBar(com.google.protobuf.GeneratedMessageLite.Builder builder) {
       super(builder);
-
+      this.unknownFields = builder.getUnknownFields();
     }
-    private FooBar(boolean noInit) {}
+    private FooBar(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
 
     private static final FooBar defaultInstance;
     public static FooBar getDefaultInstance() {
@@ -1403,12 +1421,18 @@ public final class Bench {
       return defaultInstance;
     }
 
+    private final com.google.protobuf.ByteString unknownFields;
     private FooBar(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
       try {
         boolean done = false;
         while (!done) {
@@ -1418,7 +1442,7 @@ public final class Bench {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input,
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
                                      extensionRegistry, tag)) {
                 done = true;
               }
@@ -1438,8 +1462,9 @@ public final class Bench {
               break;
             }
             case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 25: {
@@ -1460,6 +1485,13 @@ public final class Bench {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -1479,7 +1511,6 @@ public final class Bench {
     }
 
     private int bitField0_;
-    // optional .benchpb.Bar sibling = 1;
     public static final int SIBLING_FIELD_NUMBER = 1;
     private benchpb.Bench.Bar sibling_;
     /**
@@ -1495,7 +1526,6 @@ public final class Bench {
       return sibling_;
     }
 
-    // optional string name = 2;
     public static final int NAME_FIELD_NUMBER = 2;
     private java.lang.Object name_;
     /**
@@ -1538,7 +1568,6 @@ public final class Bench {
       }
     }
 
-    // optional double rating = 3;
     public static final int RATING_FIELD_NUMBER = 3;
     private double rating_;
     /**
@@ -1554,7 +1583,6 @@ public final class Bench {
       return rating_;
     }
 
-    // optional uint32 postfix = 4;
     public static final int POSTFIX_FIELD_NUMBER = 4;
     private int postfix_;
     /**
@@ -1579,7 +1607,8 @@ public final class Bench {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (hasSibling()) {
         if (!getSibling().isInitialized()) {
@@ -1606,6 +1635,7 @@ public final class Bench {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeUInt32(4, postfix_);
       }
+      output.writeRawBytes(unknownFields);
     }
 
     private int memoizedSerializedSize = -1;
@@ -1630,6 +1660,7 @@ public final class Bench {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, postfix_);
       }
+      size += unknownFields.size();
       memoizedSerializedSize = size;
       return size;
     }
@@ -1707,7 +1738,9 @@ public final class Bench {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageLite.Builder<
           benchpb.Bench.FooBar, Builder>
-        implements benchpb.Bench.FooBarOrBuilder {
+        implements
+        // @@protoc_insertion_point(builder_implements:benchpb.FooBar)
+        benchpb.Bench.FooBarOrBuilder {
       // Construct using benchpb.Bench.FooBar.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
@@ -1788,6 +1821,8 @@ public final class Bench {
         if (other.hasPostfix()) {
           setPostfix(other.getPostfix());
         }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
         return this;
       }
 
@@ -1820,7 +1855,6 @@ public final class Bench {
       }
       private int bitField0_;
 
-      // optional .benchpb.Bar sibling = 1;
       private benchpb.Bench.Bar sibling_ = benchpb.Bench.Bar.getDefaultInstance();
       /**
        * <code>optional .benchpb.Bar sibling = 1;</code>
@@ -1881,7 +1915,6 @@ public final class Bench {
         return this;
       }
 
-      // optional string name = 2;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 2;</code>
@@ -1895,9 +1928,12 @@ public final class Bench {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1955,7 +1991,6 @@ public final class Bench {
         return this;
       }
 
-      // optional double rating = 3;
       private double rating_ ;
       /**
        * <code>optional double rating = 3;</code>
@@ -1988,7 +2023,6 @@ public final class Bench {
         return this;
       }
 
-      // optional uint32 postfix = 4;
       private int postfix_ ;
       /**
        * <code>optional uint32 postfix = 4;</code>
@@ -2032,10 +2066,10 @@ public final class Bench {
     // @@protoc_insertion_point(class_scope:benchpb.FooBar)
   }
 
-  public interface FooBarContainerOrBuilder
-      extends com.google.protobuf.MessageLiteOrBuilder {
+  public interface FooBarContainerOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:benchpb.FooBarContainer)
+      com.google.protobuf.MessageLiteOrBuilder {
 
-    // repeated .benchpb.FooBar list = 1;
     /**
      * <code>repeated .benchpb.FooBar list = 1;</code>
      *
@@ -2062,7 +2096,6 @@ public final class Bench {
      */
     int getListCount();
 
-    // optional bool initialized = 2;
     /**
      * <code>optional bool initialized = 2;</code>
      */
@@ -2072,7 +2105,6 @@ public final class Bench {
      */
     boolean getInitialized();
 
-    // optional .benchpb.Enum fruit = 3;
     /**
      * <code>optional .benchpb.Enum fruit = 3;</code>
      */
@@ -2082,7 +2114,6 @@ public final class Bench {
      */
     benchpb.Bench.Enum getFruit();
 
-    // optional string location = 4;
     /**
      * <code>optional string location = 4;</code>
      */
@@ -2101,14 +2132,15 @@ public final class Bench {
    * Protobuf type {@code benchpb.FooBarContainer}
    */
   public static final class FooBarContainer extends
-      com.google.protobuf.GeneratedMessageLite
-      implements FooBarContainerOrBuilder {
+      com.google.protobuf.GeneratedMessageLite implements
+      // @@protoc_insertion_point(message_implements:benchpb.FooBarContainer)
+      FooBarContainerOrBuilder {
     // Use FooBarContainer.newBuilder() to construct.
     private FooBarContainer(com.google.protobuf.GeneratedMessageLite.Builder builder) {
       super(builder);
-
+      this.unknownFields = builder.getUnknownFields();
     }
-    private FooBarContainer(boolean noInit) {}
+    private FooBarContainer(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
 
     private static final FooBarContainer defaultInstance;
     public static FooBarContainer getDefaultInstance() {
@@ -2119,12 +2151,18 @@ public final class Bench {
       return defaultInstance;
     }
 
+    private final com.google.protobuf.ByteString unknownFields;
     private FooBarContainer(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.ByteString.Output unknownFieldsOutput =
+          com.google.protobuf.ByteString.newOutput();
+      com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
+          com.google.protobuf.CodedOutputStream.newInstance(
+              unknownFieldsOutput);
       try {
         boolean done = false;
         while (!done) {
@@ -2134,7 +2172,7 @@ public final class Bench {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input,
+              if (!parseUnknownField(input, unknownFieldsCodedOutput,
                                      extensionRegistry, tag)) {
                 done = true;
               }
@@ -2156,15 +2194,19 @@ public final class Bench {
             case 24: {
               int rawValue = input.readEnum();
               benchpb.Bench.Enum value = benchpb.Bench.Enum.valueOf(rawValue);
-              if (value != null) {
+              if (value == null) {
+                unknownFieldsCodedOutput.writeRawVarint32(tag);
+                unknownFieldsCodedOutput.writeRawVarint32(rawValue);
+              } else {
                 bitField0_ |= 0x00000002;
                 fruit_ = value;
               }
               break;
             }
             case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              location_ = input.readBytes();
+              location_ = bs;
               break;
             }
           }
@@ -2177,6 +2219,13 @@ public final class Bench {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           list_ = java.util.Collections.unmodifiableList(list_);
+        }
+        try {
+          unknownFieldsCodedOutput.flush();
+        } catch (java.io.IOException e) {
+        // Should not happen
+        } finally {
+          unknownFields = unknownFieldsOutput.toByteString();
         }
         makeExtensionsImmutable();
       }
@@ -2197,7 +2246,6 @@ public final class Bench {
     }
 
     private int bitField0_;
-    // repeated .benchpb.FooBar list = 1;
     public static final int LIST_FIELD_NUMBER = 1;
     private java.util.List<benchpb.Bench.FooBar> list_;
     /**
@@ -2253,7 +2301,6 @@ public final class Bench {
       return list_.get(index);
     }
 
-    // optional bool initialized = 2;
     public static final int INITIALIZED_FIELD_NUMBER = 2;
     private boolean initialized_;
     /**
@@ -2269,7 +2316,6 @@ public final class Bench {
       return initialized_;
     }
 
-    // optional .benchpb.Enum fruit = 3;
     public static final int FRUIT_FIELD_NUMBER = 3;
     private benchpb.Bench.Enum fruit_;
     /**
@@ -2285,7 +2331,6 @@ public final class Bench {
       return fruit_;
     }
 
-    // optional string location = 4;
     public static final int LOCATION_FIELD_NUMBER = 4;
     private java.lang.Object location_;
     /**
@@ -2337,7 +2382,8 @@ public final class Bench {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getListCount(); i++) {
         if (!getList(i).isInitialized()) {
@@ -2364,6 +2410,7 @@ public final class Bench {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(4, getLocationBytes());
       }
+      output.writeRawBytes(unknownFields);
     }
 
     private int memoizedSerializedSize = -1;
@@ -2388,6 +2435,7 @@ public final class Bench {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, getLocationBytes());
       }
+      size += unknownFields.size();
       memoizedSerializedSize = size;
       return size;
     }
@@ -2465,7 +2513,9 @@ public final class Bench {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageLite.Builder<
           benchpb.Bench.FooBarContainer, Builder>
-        implements benchpb.Bench.FooBarContainerOrBuilder {
+        implements
+        // @@protoc_insertion_point(builder_implements:benchpb.FooBarContainer)
+        benchpb.Bench.FooBarContainerOrBuilder {
       // Construct using benchpb.Bench.FooBarContainer.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
@@ -2554,6 +2604,8 @@ public final class Bench {
           location_ = other.location_;
           
         }
+        setUnknownFields(
+            getUnknownFields().concat(other.unknownFields));
         return this;
       }
 
@@ -2586,7 +2638,6 @@ public final class Bench {
       }
       private int bitField0_;
 
-      // repeated .benchpb.FooBar list = 1;
       private java.util.List<benchpb.Bench.FooBar> list_ =
         java.util.Collections.emptyList();
       private void ensureListIsMutable() {
@@ -2728,7 +2779,8 @@ public final class Bench {
       public Builder addAllList(
           java.lang.Iterable<? extends benchpb.Bench.FooBar> values) {
         ensureListIsMutable();
-        super.addAll(values, list_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, list_);
 
         return this;
       }
@@ -2759,7 +2811,6 @@ public final class Bench {
         return this;
       }
 
-      // optional bool initialized = 2;
       private boolean initialized_ ;
       /**
        * <code>optional bool initialized = 2;</code>
@@ -2792,7 +2843,6 @@ public final class Bench {
         return this;
       }
 
-      // optional .benchpb.Enum fruit = 3;
       private benchpb.Bench.Enum fruit_ = benchpb.Bench.Enum.Apples;
       /**
        * <code>optional .benchpb.Enum fruit = 3;</code>
@@ -2828,7 +2878,6 @@ public final class Bench {
         return this;
       }
 
-      // optional string location = 4;
       private java.lang.Object location_ = "";
       /**
        * <code>optional string location = 4;</code>
@@ -2842,9 +2891,12 @@ public final class Bench {
       public java.lang.String getLocation() {
         java.lang.Object ref = location_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          location_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            location_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;

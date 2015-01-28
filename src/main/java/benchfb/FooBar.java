@@ -13,14 +13,10 @@ public class FooBar extends Table {
 
   public Bar sibling() { return sibling(new Bar()); }
   public Bar sibling(Bar obj) { int o = __offset(4); return o != 0 ? obj.__init(o + bb_pos, bb) : null; }
-  public boolean hasSibling() { return __offset(4) != 0; }
   public String name() { int o = __offset(6); return o != 0 ? __string(o + bb_pos) : null; }
   public ByteBuffer nameAsByteBuffer() { return __vector_as_bytebuffer(6, 1); }
-  public boolean hasName() { return __offset(6) != 0; }
   public double rating() { int o = __offset(8); return o != 0 ? bb.getDouble(o + bb_pos) : 0; }
-  public boolean hasRating() { return __offset(8) != 0; }
   public byte postfix() { int o = __offset(10); return o != 0 ? bb.get(o + bb_pos) : 0; }
-  public boolean hasPostfix() { return __offset(10) != 0; }
 
   public static void startFooBar(FlatBufferBuilder builder) { builder.startObject(4); }
   public static void addSibling(FlatBufferBuilder builder, int siblingOffset) { builder.addStruct(0, siblingOffset, 0); }

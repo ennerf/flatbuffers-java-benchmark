@@ -14,18 +14,14 @@ public class FooBarContainer extends Table {
   public FooBar list(int j) { return list(new FooBar(), j); }
   public FooBar list(FooBar obj, int j) { int o = __offset(4); return o != 0 ? obj.__init(__indirect(__vector(o) + j * 4), bb) : null; }
   public int listLength() { int o = __offset(4); return o != 0 ? __vector_len(o) : 0; }
-  public boolean hasList() { return __offset(4) != 0; }
-  public byte initialized() { int o = __offset(6); return o != 0 ? bb.get(o + bb_pos) : 0; }
-  public boolean hasInitialized() { return __offset(6) != 0; }
+  public boolean initialized() { int o = __offset(6); return o != 0 ? 0!=bb.get(o + bb_pos) : false; }
   public short fruit() { int o = __offset(8); return o != 0 ? bb.getShort(o + bb_pos) : 0; }
-  public boolean hasFruit() { return __offset(8) != 0; }
   public String location() { int o = __offset(10); return o != 0 ? __string(o + bb_pos) : null; }
   public ByteBuffer locationAsByteBuffer() { return __vector_as_bytebuffer(10, 1); }
-  public boolean hasLocation() { return __offset(10) != 0; }
 
   public static int createFooBarContainer(FlatBufferBuilder builder,
       int list,
-      byte initialized,
+      boolean initialized,
       short fruit,
       int location) {
     builder.startObject(4);
@@ -40,7 +36,7 @@ public class FooBarContainer extends Table {
   public static void addList(FlatBufferBuilder builder, int listOffset) { builder.addOffset(0, listOffset, 0); }
   public static int createListVector(FlatBufferBuilder builder, int[] data) { builder.startVector(4, data.length, 4); for (int i = data.length - 1; i >= 0; i--) builder.addOffset(data[i]); return builder.endVector(); }
   public static void startListVector(FlatBufferBuilder builder, int numElems) { builder.startVector(4, numElems, 4); }
-  public static void addInitialized(FlatBufferBuilder builder, byte initialized) { builder.addByte(1, initialized, 0); }
+  public static void addInitialized(FlatBufferBuilder builder, boolean initialized) { builder.addBoolean(1, initialized, false); }
   public static void addFruit(FlatBufferBuilder builder, short fruit) { builder.addShort(2, fruit, 0); }
   public static void addLocation(FlatBufferBuilder builder, int locationOffset) { builder.addOffset(3, locationOffset, 0); }
   public static int endFooBarContainer(FlatBufferBuilder builder) {
